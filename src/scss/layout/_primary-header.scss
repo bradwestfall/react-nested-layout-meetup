@@ -1,0 +1,17 @@
+.primary-header {
+  background: linear-gradient(-40deg, #0567b2, #3ce2ff);
+  color: #fff;
+  border-bottom: 3px solid #31caf0;
+
+  > div {
+    position: relative;
+    min-height: 60px;
+  }
+
+  .logo {
+    position: absolute;
+    left: 0;
+    top: 17px;
+    width: 200px;
+  }
+}

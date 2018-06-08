@@ -1,0 +1,17 @@
+{
+  "presets": [
+    // Specifies what level of language features to activate.
+    // Stage 2 is "draft".
+    // For other stages see https://tc39.github.io/process-document/
+    "stage-2",
+    "react"
+  ],
+  "plugins": [
+    "import-glob",
+    "transform-object-assign",
+    // Allows us to use ESModule includes from src instead of using relative paths everywhere
+    ["module-resolver", {
+      "root": ["./src"]
+    }]
+  ]
+}

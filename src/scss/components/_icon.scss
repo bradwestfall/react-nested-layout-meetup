@@ -1,0 +1,28 @@
+svg.icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: middle;
+  line-height: 1em;
+
+  @for $i from 1 through 20 {
+     &.size-#{$i} {
+       width: #{$i}em;
+       height: #{$i}em;
+     }
+  }
+
+  &.twist {
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: rotate(35deg);
+    }
+  }
+
+  &.color-pink   { fill: $pink !important; }
+  &.color-green  { fill: $green !important; }
+  &.color-blue   { fill: $blue !important; }
+  &.color-gray   { fill: #aaa !important; }
+  &.color-white  { fill: #fff !important; }
+}

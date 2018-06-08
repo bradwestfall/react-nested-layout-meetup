@@ -1,0 +1,32 @@
+.context-header {
+  background-color: #fff;
+  border-bottom: 1px solid $line-color;
+  padding: 0 1rem;
+
+  .primary-nav {
+    margin-left: -1.5em;
+
+    .primary-nav-item {
+      display: inline-block;
+      color: $text-color-light;
+      padding: 1em 1.5em;
+
+      // In the few cases that .primary-nav-item is not also the anchor
+      a { color: inherit; }
+
+      &:hover {
+        color: $text-color;
+        svg { fill: $blue; }
+      }
+
+      &.active {
+        color: $text-color;
+        border-bottom: 1px solid $blue;
+        margin-bottom: -1px;
+        font-weight: bold;
+        svg { fill: $blue; }
+      }
+    }
+  }
+}
+

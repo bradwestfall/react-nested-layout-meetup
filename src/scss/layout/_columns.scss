@@ -1,0 +1,68 @@
+// Inspired by https://philipwalton.github.io/solved-by-flexbox/demos/grids/
+// and https://css-tricks.com/dont-overthink-flexbox-grids/
+
+$cols: 12;
+
+.columns {
+  display: flex;
+
+  /**
+   * Split
+   */
+
+  &.split {
+    justify-content: space-between;
+  }
+
+  /**
+   * Column Enhancers
+   */
+
+  &.align-center {
+    align-items: center;
+    > * { vertical-align: middle; }
+  }
+
+  // Allow gutter size 1-5 which are calculated based on `em`s
+  @for $i from 1 through 5 {
+    &.gutter-size-#{$i} {
+      margin-left: #{$i * -0.5}em;
+      margin-right: #{$i * -0.5}em;
+      > * {
+        margin-left: #{$i * 0.5}em;
+        margin-right: #{$i * 0.5}em;
+      }
+    }
+  }
+
+  /**
+   * Flex Items
+   */
+
+   > * {
+    box-sizing: border-box;
+    min-width: 0; // https://css-tricks.com/flexbox-truncated-text/
+  }
+
+   // Percentage-width based columns
+   @for $i from 1 through $cols {
+    > .span-#{$i} {
+      width: percentage($i / $cols);
+    }
+    &.with-gutters > .span-#{$i} {
+      width: calc(#{percentage($i / $cols)} - #{$gutter});
+    }
+   }
+
+   // Fixed-width based columns
+   @for $i from 1 through 50 {
+    > .size-#{$i} {
+      width: #{$i}em
+    }
+   }
+
+  > .flex { flex: 1; }
+  > .align-left { text-align: left; }
+  > .align-right { text-align: right; }
+  > .align-center { text-align: center; }
+}

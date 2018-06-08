@@ -1,0 +1,122 @@
+button {
+  @include button-reset;
+  color: $anchor-color;
+
+  &.warn { color: $warn; }
+}
+
+button, .button {
+  @include button-reset;
+  vertical-align: bottom;
+}
+
+.button {
+  padding: 0.3em 0.8em;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  background-color: $action;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 0.2rem;
+  border: 1px solid $action;
+
+  &.small { font-size: 0.7rem; }
+  &.large { font-size: 1.5rem; }
+
+  &.outline {
+    background-color: #fff;
+    border: 1px solid currentcolor;
+    color: $action;
+    &:disabled {
+      color: #aaa;
+    }
+  }
+
+  &.outline-light {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+  }
+
+  &.warn:not(:disabled) {
+    &:not(.outline) {
+      background-color: $warn;
+      color: #fff;
+      border-color: $warn;
+      &:hover { background-color: darken($warn, 5%); }
+    }
+    &.outline { color: $warn; }
+  }
+
+  &:not(.outline):not(.outline-light):not(.warn) {
+    &:hover {
+      background-color: darken($action, 10%);
+      border-color: darken($action, 10%);
+    }
+    &:disabled {
+      background: #fafafa;
+      border: 1px solid #bbb;
+      color: #ccc;
+      text-shadow: 1px 1px #fff;
+      font-weight: 300;
+    }
+  }
+
+  // Extra spacing for buttons that are "icon-text"
+  &.icon-text {
+    span {
+      margin-left: 0.7em;
+    }
+  }
+
+}
+
+@mixin square-button-left {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  // border-left: 1px solid rgba(#fff, 0.1);
+  border-left: none;
+}
+
+@mixin square-button-right {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  // border-right: 1px solid rgba(#000, 0.1);
+  border-right: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 1px;
+    position: absolute;
+    right: 0;
+    top: 0.3em;
+    bottom: 0.3em;
+    border-right: 1px solid rgba(#fff, 0.7);
+  }
+}
+
+.button-group {
+  display: inline-block;
+
+  > button, .button {
+
+    &:not(:last-child):not(.button-group-left):not(.button-group-right) {
+      @include square-button-right;
+    }
+
+    &:not(:first-child):not(.button-group-left):not(.button-group-right) {
+      @include square-button-left;
+    }
+
+    &.button-group-left {
+      @include square-button-right;
+    }
+
+    &.button-group-right {
+      @include square-button-left;
+    }
+
+  }
+}

@@ -1,0 +1,21 @@
+.app.unauthorized {
+  min-height: 100vh;
+  position: relative;
+  background-image: radial-gradient(#7EC6EA, #3AA6E0);
+  display: flex;
+  align-items: center;
+
+  .logo {
+    width: 9em;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+  }
+
+  > main {
+    @include owl($gutter);
+    width: 450px;
+    margin: 3em auto;
+    min-height: 100px;
+  }
+}

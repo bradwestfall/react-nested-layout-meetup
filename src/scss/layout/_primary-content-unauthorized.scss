@@ -1,0 +1,13 @@
+.primary-content-unauthorized {
+  @include owl($gutter);
+  background-color: #fff;
+  border-radius: 0.5em;
+  min-height: 100px;
+  padding: $gutter;
+  box-shadow: 0 0 0 5px rgba(#fff, 0.3);
+  border: 1px solid $line-color;
+}
+
+.primary-content-unauthorized.signup {
+  width: 800px;
+}

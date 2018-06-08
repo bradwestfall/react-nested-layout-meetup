@@ -1,0 +1,51 @@
+body {
+  background-color: $light-gray;
+}
+
+.app {
+  min-width: 980px;
+
+  // Adds blurry effect behind lightboxes
+  &.lightbox-open {
+    filter: blur(3px);
+  }
+}
+
+.panel {
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  @media (min-width: 1000px) {
+    padding: 0;
+
+    > div {
+      margin: 0 auto;
+      width: 1000px;
+    }
+  }
+}
+
+.primary-content {
+  margin-top: $gutter;
+}
+
+.section-layout {
+  display: flex;
+  padding-bottom: $gutter;
+  min-height: 40vh;
+
+  > aside {
+    @include owl($gutter * 2);
+    width: 18em;
+    padding-bottom: 3em;
+    margin-left: $gutter;
+    padding-left: $gutter;
+    border-left: 1px solid $line-color;
+  }
+
+  main {
+    flex: 1;
+    @include owl($gutter);
+    padding-bottom: 3em;
+  }
+}

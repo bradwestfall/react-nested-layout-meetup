@@ -1,0 +1,87 @@
+.lightbox-screen {
+  position: fixed;
+  z-index: 10000;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(transparent, rgba(#000, 0.2));
+}
+
+.lightbox {
+  position: fixed;
+  z-index: 10001;
+  width: 600px;
+  max-width: 90vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+
+  > div {
+    box-shadow: 0 0 75px -15px #000;
+  }
+
+  > .close {
+    position: absolute;
+    right: 0.8em;
+    top: 0.5em;
+    color: $warn;
+  }
+
+  &.small { width: 400px; }
+  &.large { width: 900px; }
+}
+
+
+/****************************************
+  Standard Lightbox
+*****************************************/
+
+@mixin round-top() {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+@mixin round-bottom() {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+.lightbox.standard {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+
+  > div {
+    border-radius: 0.5em;
+  }
+
+  .lightbox-header, .lightbox-footer {
+    padding: $gutter;
+    background-color: #fafafa;
+  }
+
+  .lightbox-header {
+    @include round-top;
+    border-bottom: 1px solid $line-color;
+    font-weight: bold;
+  }
+
+  .lightbox-footer {
+    @include round-bottom;
+    border-top: 1px solid $line-color;
+  }
+
+  .lightbox-body {
+    flex: 1;
+    overflow-y: scroll;
+    padding: $gutter;
+    background-color: #fff;
+    min-height: 5em;
+    max-height: 70vh;
+
+    // If the body is missing a header or footer, then it needs to compensate by
+    // adding it's own rounded corners
+    &:first-child { @include round-top }
+    &:last-child { @include round-bottom }
+  }
+
+}

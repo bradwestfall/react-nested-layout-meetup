@@ -1,0 +1,28 @@
+.clearfix { @include clearfix; }
+
+.owl-small { @include owl(0.2em); }
+.owl-medium { @include owl($gutter-small); }
+.owl { @include owl($gutter); }
+.owl-large { @include owl($gutter * 2); }
+
+.horizontal-owl-small { @include owl(0.2em, true); }
+.horizontal-owl-medium { @include owl($gutter-small, true); }
+.horizontal-owl { @include owl($gutter, true); }
+
+.vertical-middle > * { vertical-align: middle; }
+
+.link-group {
+  display: inline-block;
+
+  > * + * {
+    position: relative;
+    margin-left: 1.2em !important;
+    display: inline-block;
+
+    &::before {
+      content: ':';
+      position: absolute;
+      left: -0.7em;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+// ****************************************
+//  Layout Helpers
+// *****************************************/
+
+// Micro Clearfix
+@mixin clearfix {
+
+	/**
+	 * More Details: http://nicolasgallagher.com/micro-clearfix-hack/
+	 */
+
+	/**
+	 * For modern browsers
+	 * 1. The space content is one way to avoid an Opera bug when the
+	 *    contenteditable attribute is included anywhere else in the document.
+	 *    Otherwise it causes space to appear at the top and bottom of elements
+	 *    that are clearfixed.
+	 * 2. The use of `table` rather than `block` is only necessary if using
+	 *    `:before` to contain the top-margins of child elements.
+	 */
+	&::before,
+	&::after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+	}
+
+	&::after {
+    clear: both;
+	}
+
+}
+
+// Vertical Gutters
+@mixin owl($gutter, $horizontal: false) {
+
+  /**
+   * Apply to containers to get nice gutters between vertical items
+   *
+   * More Details: https://www.youtube.com/watch?v=w4skJXB03Ho&noredirect=1
+   */
+
+  @if $horizontal {
+
+    // Its the "Lobotomized Owl" horizontally
+    > * + * {
+      margin-left: $gutter !important;
+    }
+
+  } @else {
+
+    // Reset all first-child elements to have no vertical margin
+    > * {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    // Its the "Lobotomized Owl" vertically
+    > * + * {
+      margin-top: $gutter !important;
+    }
+
+  }
+
+}

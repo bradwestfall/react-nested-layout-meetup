@@ -1,0 +1,10 @@
+.jumbo-notice {
+  border: 1px solid $line-color;
+  border-radius: 1em;
+  padding: 1em;
+  text-align: center;
+
+  @media (min-width: 500px) {
+    padding: 2em 5em;
+  }
+}

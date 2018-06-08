@@ -1,0 +1,49 @@
+// ****************************************
+//   Inherited Syles
+// ****************************************
+
+// See this explanation for details
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+
+html {
+  box-sizing: border-box;
+  color: $text-color;
+  font: $font-size $font-family;
+  font-weight: $font-weight;
+  letter-spacing: 0.05em;
+
+  @media (min-width: 1500px) {
+    font-size: 13pt;
+  }
+
+  @media (min-width: 1700px) {
+    font-size: 14pt;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+
+// ****************************************
+//   Resets
+// ****************************************
+
+body {
+  margin: 0;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid $line-color;
+  margin: 2em 0;
+}
+
+
+/****************************************
+  Misc
+*****************************************/
+
+// Find class names that are undefined (an error from JS)
+.undefined { background-color: lime !important; }

@@ -1,0 +1,25 @@
+.paginated-nav {
+  > * {
+    padding: 0.2em 0.6em;
+    display: inline-block;
+  }
+
+  > * + * {
+    margin-left: 0.3em;
+  }
+
+  a.change-page {
+    border: 1px solid $line-color;
+    border-radius: 0.2em;
+    background-color: #fff;
+
+    &:hover {
+      border-color: $bright-blue;
+    }
+
+    &.active {
+      background-color: rgba($light-blue, 0.3);
+      border-color: $bright-blue;
+    }
+  }
+}

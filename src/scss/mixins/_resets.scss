@@ -1,0 +1,22 @@
+@mixin button-reset() {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  outline: 0;
+  display: inline-block;
+  &::-moz-focus-inner { border: 0; }
+  &:hover { outline: 0; }
+}
+
+// For ol and ul
+@mixin list-reset() {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  ol, ul { // For nested ol's and ul's
+    margin: 0;
+    padding: 0;
+  }
+  li { list-style: none; }
+}

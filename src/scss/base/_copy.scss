@@ -1,0 +1,81 @@
+a {
+  color: $anchor-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  &.plain {
+    color: $text-color;
+
+    &:hover {
+      color: $anchor-color;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $title-font-family;
+	font-weight: 600;
+  letter-spacing: 0.1em;
+  margin: 0;
+
+  &.icon-text svg.icon { fill: $green; }
+}
+
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.3em; }
+h3 { font-size: 1.1em; }
+h4, h5, h6 { font-size: 1em; }
+
+.sub-heading { color: $blue; }
+
+em { font-style: italic; }
+strong { font-weight: 600; }
+
+p { line-height: 1.5em; }
+p.intro {
+  font-size: 1.4em;
+  font-weight: 100;
+  font-family: 'Lato', Arial;
+}
+
+.warn { color: $warn; }
+
+.highlighter {
+  background-color: #ffffc2;
+  padding: 3px;
+}
+
+.fineprint {
+  font-size: 0.8rem;
+  &:not(a) {
+    color: $text-color-light;
+  }
+
+  strong {
+    color: $text-color;
+  }
+}
+
+.jumbo-text {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.confine {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon-text {
+  span {
+    margin-left: 0.3em;
+    vertical-align: middle;
+  }
+  &-reverse {
+    span {
+      margin-right: 0.3em;
+      vertical-align: middle;
+    }
+  }
+}
